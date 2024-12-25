@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPI Entry</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <h1>SKU DATA ENTRY</h1>
+  <form id="kpiForm">
+    <label for="department">Bahagian:</label>
+    <select id="department" name="department" required>
+      <option value="" disabled selected>Pilih Bahagian</option>
+      <option value="BAZ">BAZ</option>
+      <option value="BKP">BKP</option>
+      <option value="BPA">BPA</option>
+      <option value="BPI-HQ">BPI-HQ</option>
+      <option value="BPI-DS">BPI-DS</option>
+      <option value="BPI-DK">BPI-DK</option>
+      <option value="BPI-DI">BPI-DI</option>
+      <option value="BPI-IKB">BPI-IKB</option>
+      <option value="BPI-PMA">BPI-PMA</option>
+      <option value="BPI-SMA">BPI-SMA</option>
+      <option value="BPI-SMISTA">BPI-SMISTA</option>
+      <option value="BPPH">BPPH</option>
+      <option value="BTM">BTM</option>
+      <option value="BWP">BWP</option>
+      <option value="MCL">MCL</option>
+      <option value="MCP">MCP</option>
+      <option value="UI">UI</option>
+      <option value="UKK">UKK</option>
+      <option value="UUU">UUU</option>
+      <option value="UAD">UAD</option>
+      <option value="BPSM">BPSM</option>
+    </select><br><br>
+
+    <label for="activity">Aktiviti:</label>
+    <input type="text" id="activity" name="activity" class="wide-input" required><br><br>
+
+    <label for="measurement">Ukuran:</label>
+    <select id="measurement" name="measurement" required>
+      <option value="" disabled selected>Pilih</option>
+      <option value="time">Masa</option>
+      <option value="quantity">Kuantiti</option>
+      <option value="percentage">Peratus</option>
+    </select><br><br>
+
+    <div id="timeFields" class="hidden">
+      <label for="targetDate">Sasaran Tarikh:</label>
+      <input type="date" id="targetDate" name="targetDate"><br><br>
+
+      <label for="achievedDate">Tarikh Dicapai:</label>
+      <input type="date" id="achievedDate" name="achievedDate"><br><br>
+    </div>
+
+    <div id="quantityFields" class="hidden">
+      <label for="targetQuantity">Kuantiti Sasaran:</label>
+      <input type="number" id="targetQuantity" name="targetQuantity"><br><br>
+
+      <label for="achievedQuantity">Kuantiti Dicapai:</label>
+      <input type="number" id="achievedQuantity" name="achievedQuantity"><br><br>
+    </div>
+
+    <div id="percentageFields" class="hidden">
+      <label for="targetPercentage">Target Peratus:</label>
+      <input type="number" id="targetPercentage" name="targetPercentage" step="0.01"><br><br>
+
+      <label for="targetValue">Jumlah Keseluruhan:</label>
+      <input type="number" id="targetValue" name="targetValue" step="0.01"><br><br>
+
+      <label for="achievedValue">Jumlah Dicapai:</label>
+      <input type="number" id="achievedValue" name="achievedValue" step="0.01"><br><br>
+    </div>
+
+    <button type="submit">Simpan KPI</button>
+  </form>
+
+  <div class="table-header">
+    <h2>Data KPI</h2>
+    <button id="uploadExcel">Muat Naik Excel</button>
+    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display: none;" />
+    <button id="downloadExcel">Muat Turun Excel</button>
+  </div>
+
+  <table id="kpiTable">
+    <thead>
+      <tr>
+        <th>Bil.</th>
+        <th>Bahagian</th>
+        <th>Aktiviti</th>
+        <th>Peratus Pencapaian</th>
+        <th>Sasaran</th>
+        <th>Capai</th>
+        <th>Jumlah Keseluruhan</th>
+        <th>Jumlah Dicapai</th>
+        <th>Ukuran</th>
+        <th>Tindakan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data akan dimasukkan di sini -->
+    </tbody>
+  </table>
+</body>
+</html>
