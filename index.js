@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${rowData.totalValue}</td>
       <td>${rowData.achievedValue}</td>
       <td>${rowData.measurement}</td>
-      <td><button class="edit-btn">Edit</button></td>
+      <td><button class="edit-btn"><i class="fas fa-edit"></i></button></td>
     `;
     kpiTableBody.appendChild(newRow);
 
