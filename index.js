@@ -115,18 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const editButton = newRow.querySelector(".edit-btn");
     editButton.addEventListener("click", () => {
-      const cells = newRow.cells;
-      const rowData = {
-        department: cells[1].textContent,
-        activity: cells[2].textContent,
-        percentageAchievement: cells[3].textContent,
-        target: cells[4].textContent,
-        achieved: cells[5].textContent,
-        totalValue: cells[6].textContent,
-        achievedValue: cells[7].textContent,
-        measurement: cells[8].textContent,
-      };
-      populateFormForEdit(rowData, newRow.rowIndex - 1);
+      const rowIndex = newRow.rowIndex - 1; // Row index tanpa header
+      populateFormForEdit(kpiData[rowIndex], rowIndex);
     });
   }
 
@@ -142,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("targetQuantity").value = rowData.target;
       document.getElementById("achievedQuantity").value = rowData.achieved;
     } else if (rowData.measurement === "Peratus") {
-      document.getElementById("targetPercentage").value = rowData.target.replace("%", "");
+      document.getElementById("targetPercentage").value = parseFloat(rowData.target.replace("%", "")) || "";
       document.getElementById("targetValue").value = rowData.totalValue;
       document.getElementById("achievedValue").value = rowData.achievedValue;
     }
